@@ -1,0 +1,63 @@
+PODS:
+  - JRSwizzle (1.0)
+  - M9Dev (0.0.10):
+    - JRSwizzle
+    - M9Dev/Libraries (= 0.0.10)
+    - M9Dev/M9Dev (= 0.0.10)
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries (0.0.10):
+    - JRSwizzle
+    - M9Dev/Libraries/BlocksKit (= 0.0.10)
+    - M9Dev/Libraries/CompareToVersion (= 0.0.10)
+    - M9Dev/Libraries/extobjc (= 0.0.10)
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries/BlocksKit (0.0.10):
+    - JRSwizzle
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries/CompareToVersion (0.0.10):
+    - JRSwizzle
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/Libraries/extobjc (0.0.10):
+    - JRSwizzle
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - M9Dev/M9Dev (0.0.10):
+    - JRSwizzle
+    - M9Dev/Libraries
+    - Masonry
+    - NSString-UrlEncode
+    - Reachability
+  - Masonry (0.6.4)
+  - NSString-UrlEncode (2.0.0)
+  - Reachability (3.2)
+
+DEPENDENCIES:
+  - M9Dev (from `https://github.com/iwill/M9Dev.git`, branch `public`)
+
+EXTERNAL SOURCES:
+  M9Dev:
+    :branch: public
+    :git: https://github.com/iwill/M9Dev.git
+
+CHECKOUT OPTIONS:
+  M9Dev:
+    :commit: f4e4c15201c36ddc8b4afa9550349ecb4e3b5f76
+    :git: https://github.com/iwill/M9Dev.git
+
+SPEC CHECKSUMS:
+  JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
+  M9Dev: e2601d31f461d9c144a4ecc46c379f134e84c98b
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  NSString-UrlEncode: d26eb4378531911d54694733143dd493c1571f5c
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+
+COCOAPODS: 0.39.0
