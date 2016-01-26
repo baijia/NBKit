@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "CoreGraphics", "Foundation", "UIKit", "QuartzCore"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -137,6 +137,13 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
+  s.dependency "AFNetworking", "~>2.5"
+  # s.dependency "CocoaLumberjack"
+  # s.dependency "ELCImagePickerController"
   s.dependency "M9Dev"
+  s.dependency "Masonry"
+  s.dependency "SDWebImage"
+  # s.dependency "TMCache"
+  s.dependency "YYModel"
 
 end
