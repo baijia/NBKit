@@ -17,6 +17,7 @@
 		DF63D46B1C57782D003B25BA /* NBKitDevTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D46A1C57782D003B25BA /* NBKitDevTests.m */; };
 		DF63D4761C57782D003B25BA /* NBKitDevUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4751C57782D003B25BA /* NBKitDevUITests.m */; };
 		DF63D4851C577B2E003B25BA /* NBKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DF63D4841C577B2E003B25BA /* NBKit.bundle */; };
+		DF63D4881C577D33003B25BA /* NBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4871C577D33003B25BA /* NBUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		DF63D4751C57782D003B25BA /* NBKitDevUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBKitDevUITests.m; sourceTree = "<group>"; };
 		DF63D4771C57782D003B25BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF63D4841C577B2E003B25BA /* NBKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NBKit.bundle; sourceTree = "<group>"; };
+		DF63D4861C577D33003B25BA /* NBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUtilities.h; sourceTree = "<group>"; };
+		DF63D4871C577D33003B25BA /* NBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 		DF63D4831C577AA4003B25BA /* NBKit */ = {
 			isa = PBXGroup;
 			children = (
+				DF63D4861C577D33003B25BA /* NBUtilities.h */,
+				DF63D4871C577D33003B25BA /* NBUtilities.m */,
 			);
 			path = NBKit;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF63D4881C577D33003B25BA /* NBUtilities.m in Sources */,
 				DF63D4581C57782D003B25BA /* ViewController.m in Sources */,
 				DF63D4551C57782D003B25BA /* AppDelegate.m in Sources */,
 				DF63D4521C57782D003B25BA /* main.m in Sources */,
