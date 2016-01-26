@@ -1,0 +1,34 @@
+{
+  "name": "NBKit",
+  "version": "0.0.1",
+  "summary": "iOS Newbies Development Kit.",
+  "description": "",
+  "homepage": "http://git.baijiahulian.com/iOS/NBKit",
+  "license": "MIT",
+  "authors": {
+    "iwill": "minglq.9@gmail.com"
+  },
+  "platforms": {
+    "ios": null
+  },
+  "source": {
+    "git": "http://git.baijiahulian.com/iOS/NBKit.git",
+    "tag": "0.0.1"
+  },
+  "source_files": [
+    "NBKit",
+    "NBKit/**/*.{h,m}"
+  ],
+  "public_header_files": "NBKit/**/*.h",
+  "resource_bundles": {
+    "NBKit": [
+      "NBKit.bundle/*"
+    ]
+  },
+  "requires_arc": true,
+  "dependencies": {
+    "M9Dev": [
+
+    ]
+  }
+}
