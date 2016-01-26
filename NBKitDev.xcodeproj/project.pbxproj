@@ -60,6 +60,7 @@
 		DF63D4841C577B2E003B25BA /* NBKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NBKit.bundle; sourceTree = "<group>"; };
 		DF63D4861C577D33003B25BA /* NBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUtilities.h; sourceTree = "<group>"; };
 		DF63D4871C577D33003B25BA /* NBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUtilities.m; sourceTree = "<group>"; };
+		DF63D4891C578E0A003B25BA /* NBKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +175,7 @@
 		DF63D4831C577AA4003B25BA /* NBKit */ = {
 			isa = PBXGroup;
 			children = (
+				DF63D4891C578E0A003B25BA /* NBKit.h */,
 				DF63D4861C577D33003B25BA /* NBUtilities.h */,
 				DF63D4871C577D33003B25BA /* NBUtilities.m */,
 			);
