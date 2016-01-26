@@ -35,7 +35,21 @@ static inline NSURL *NBImageURLScaleAspectFill(NSURL *url, NSInteger width, NSIn
     return [NSURL URLWithString:NBImageURLStringScaleAspectFill(url.absoluteString, width, height)];
 }
 
+#pragma mark -
+
 @interface NBUtilities : NSObject
+
+@end
+
+#pragma mark - bundle
+
+#undef NBKit_bundle_
+#define NBKit_bundle_ @"NBKit.bundle/"
+
+@interface UIImage (NBKit)
+
+// [UIImage imageNamed_NBKit:@"imageName.png"] == [UIImage imageNamed:NBKit_bundle_"imageName.png"]
++ (UIImage *)imageNamed_NBKit:(NSString *)name;
 
 @end
 

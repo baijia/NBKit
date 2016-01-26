@@ -18,6 +18,12 @@
 		DF63D4761C57782D003B25BA /* NBKitDevUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4751C57782D003B25BA /* NBKitDevUITests.m */; };
 		DF63D4851C577B2E003B25BA /* NBKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DF63D4841C577B2E003B25BA /* NBKit.bundle */; };
 		DF63D4881C577D33003B25BA /* NBUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4871C577D33003B25BA /* NBUtilities.m */; };
+		DF63D4A51C57996E003B25BA /* NBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4931C57996E003B25BA /* NBFileManager.m */; };
+		DF63D4A61C57996E003B25BA /* NBPListStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4951C57996E003B25BA /* NBPListStorage.m */; };
+		DF63D4A71C57996E003B25BA /* NBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4981C57996E003B25BA /* NBButton.m */; };
+		DF63D4A91C57996E003B25BA /* NBImageProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D49C1C57996E003B25BA /* NBImageProgressView.m */; };
+		DF63D4AA1C57996E003B25BA /* NBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D49E1C57996E003B25BA /* NBProgressHUD.m */; };
+		DF63D4AC1C57996E003B25BA /* NBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF63D4A21C57996E003B25BA /* NBTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,18 @@
 		DF63D4861C577D33003B25BA /* NBUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBUtilities.h; sourceTree = "<group>"; };
 		DF63D4871C577D33003B25BA /* NBUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBUtilities.m; sourceTree = "<group>"; };
 		DF63D4891C578E0A003B25BA /* NBKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBKit.h; sourceTree = "<group>"; };
+		DF63D4921C57996E003B25BA /* NBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBFileManager.h; sourceTree = "<group>"; };
+		DF63D4931C57996E003B25BA /* NBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBFileManager.m; sourceTree = "<group>"; };
+		DF63D4941C57996E003B25BA /* NBPListStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBPListStorage.h; sourceTree = "<group>"; };
+		DF63D4951C57996E003B25BA /* NBPListStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBPListStorage.m; sourceTree = "<group>"; };
+		DF63D4971C57996E003B25BA /* NBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBButton.h; sourceTree = "<group>"; };
+		DF63D4981C57996E003B25BA /* NBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBButton.m; sourceTree = "<group>"; };
+		DF63D49B1C57996E003B25BA /* NBImageProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBImageProgressView.h; sourceTree = "<group>"; };
+		DF63D49C1C57996E003B25BA /* NBImageProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBImageProgressView.m; sourceTree = "<group>"; };
+		DF63D49D1C57996E003B25BA /* NBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBProgressHUD.h; sourceTree = "<group>"; };
+		DF63D49E1C57996E003B25BA /* NBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBProgressHUD.m; sourceTree = "<group>"; };
+		DF63D4A11C57996E003B25BA /* NBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBTableViewCell.h; sourceTree = "<group>"; };
+		DF63D4A21C57996E003B25BA /* NBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +196,36 @@
 				DF63D4891C578E0A003B25BA /* NBKit.h */,
 				DF63D4861C577D33003B25BA /* NBUtilities.h */,
 				DF63D4871C577D33003B25BA /* NBUtilities.m */,
+				DF63D4911C57996E003B25BA /* storage */,
+				DF63D4961C57996E003B25BA /* views&controllers */,
 			);
 			path = NBKit;
+			sourceTree = "<group>";
+		};
+		DF63D4911C57996E003B25BA /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				DF63D4921C57996E003B25BA /* NBFileManager.h */,
+				DF63D4931C57996E003B25BA /* NBFileManager.m */,
+				DF63D4941C57996E003B25BA /* NBPListStorage.h */,
+				DF63D4951C57996E003B25BA /* NBPListStorage.m */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		DF63D4961C57996E003B25BA /* views&controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DF63D4971C57996E003B25BA /* NBButton.h */,
+				DF63D4981C57996E003B25BA /* NBButton.m */,
+				DF63D49B1C57996E003B25BA /* NBImageProgressView.h */,
+				DF63D49C1C57996E003B25BA /* NBImageProgressView.m */,
+				DF63D49D1C57996E003B25BA /* NBProgressHUD.h */,
+				DF63D49E1C57996E003B25BA /* NBProgressHUD.m */,
+				DF63D4A11C57996E003B25BA /* NBTableViewCell.h */,
+				DF63D4A21C57996E003B25BA /* NBTableViewCell.m */,
+			);
+			path = "views&controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,8 +412,14 @@
 			files = (
 				DF63D4881C577D33003B25BA /* NBUtilities.m in Sources */,
 				DF63D4581C57782D003B25BA /* ViewController.m in Sources */,
+				DF63D4A51C57996E003B25BA /* NBFileManager.m in Sources */,
+				DF63D4AA1C57996E003B25BA /* NBProgressHUD.m in Sources */,
+				DF63D4AC1C57996E003B25BA /* NBTableViewCell.m in Sources */,
+				DF63D4A71C57996E003B25BA /* NBButton.m in Sources */,
+				DF63D4A61C57996E003B25BA /* NBPListStorage.m in Sources */,
 				DF63D4551C57782D003B25BA /* AppDelegate.m in Sources */,
 				DF63D4521C57782D003B25BA /* main.m in Sources */,
+				DF63D4A91C57996E003B25BA /* NBImageProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

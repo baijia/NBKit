@@ -1,4 +1,26 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - FLEX (1.1.1)
   - JRSwizzle (1.0)
   - M9Dev (0.0.10):
     - JRSwizzle
@@ -37,11 +59,22 @@ PODS:
     - NSString-UrlEncode
     - Reachability
   - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
   - NSString-UrlEncode (2.0.0)
   - Reachability (3.2)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - YYModel (0.9.12)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.5)
+  - FLEX (~> 1.1)
   - M9Dev (from `https://github.com/iwill/M9Dev.git`, branch `public`)
+  - Masonry
+  - MBProgressHUD
+  - SDWebImage
+  - YYModel
 
 EXTERNAL SOURCES:
   M9Dev:
@@ -54,10 +87,15 @@ CHECKOUT OPTIONS:
     :git: https://github.com/iwill/M9Dev.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  FLEX: a58e34e78f83547b9aceedd53a8e8f85286682ec
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   M9Dev: e2601d31f461d9c144a4ecc46c379f134e84c98b
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   NSString-UrlEncode: d26eb4378531911d54694733143dd493c1571f5c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YYModel: 33a27f41a995f4c36ff8178421bac9f221a9c7ea
 
 COCOAPODS: 0.39.0

@@ -11,3 +11,13 @@
 @implementation NBUtilities
 
 @end
+
+#pragma mark - bundle
+
+@implementation UIImage (NBKit)
+
++ (UIImage *)imageNamed_NBKit:(NSString *)name {
+    return [self imageNamed:[NSString stringWithFormat:NBKit_bundle_"%@", name]];
+}
+
+@end
