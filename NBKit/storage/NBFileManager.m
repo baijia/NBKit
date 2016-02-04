@@ -105,7 +105,7 @@ static NBFileManager *SharedFileManager = nil;
         return YES;
     }
     if (!isDirectory) {
-        return NO;
+        return [fileManager removeItemAtPath:path error:error];
     }
     NSArray *contents = [fileManager contentsOfDirectoryAtPath:path error:nil];
     for (NSString *content in contents) {
