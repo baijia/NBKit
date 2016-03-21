@@ -10,6 +10,29 @@
 
 #import <M9Dev/M9Dev.h>
 
+@implementation NBTextButton
+
+- (CGSize)sizeThatFits:(CGSize)size {
+    size = [self.titleLabel sizeThatFits:size];
+    size.width += (self.titleEdgeInsets.left + self.titleEdgeInsets.right
+                   + self.contentEdgeInsets.left + self.contentEdgeInsets.right);
+    size.height += (self.titleEdgeInsets.top + self.titleEdgeInsets.bottom
+                    + self.contentEdgeInsets.top + self.contentEdgeInsets.bottom);
+    return size;
+}
+
+- (CGRect)contentRectForBounds:(CGRect)bounds {
+    return UIEdgeInsetsInsetRect(bounds, self.contentEdgeInsets);
+}
+
+- (CGRect)titleRectForContentRect:(CGRect)contentRect {
+    return UIEdgeInsetsInsetRect(contentRect, self.titleEdgeInsets);
+}
+
+@end
+
+#pragma mark -
+
 @implementation NBImageButton
 
 - (CGSize)sizeThatFits:(CGSize)size {

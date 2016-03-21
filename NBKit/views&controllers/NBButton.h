@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@interface NBTextButton : UIButton
+
+@end
+
 @interface NBImageButton : UIButton
 
 @end
