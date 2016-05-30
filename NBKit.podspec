@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NBKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "iOS Newbies Development Kit."
 
   # This description is used to generate tags and improve search results.
@@ -24,8 +24,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  # s.description  = <<-DESC
-  #                  DESC
+  s.description  = <<-DESC
+                   iOS Newbies Development Kit.
+                   DESC
 
   s.homepage     = "http://git.baijiahulian.com/iOS/NBKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -137,7 +138,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.dependency "AFNetworking", "~>2.5"
+  s.dependency "AFNetworking"
   # s.dependency "CocoaLumberjack"
   # s.dependency "ELCImagePickerController"
   s.dependency "M9Dev"
