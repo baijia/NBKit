@@ -1,7 +1,7 @@
 # source 'https://github.com/CocoaPods/Specs.git'
 source 'https://gitcafe.com/akuandev/Specs.git'
 
-platform :ios, '6.0'
+platform :ios, '7.0'
 
 inhibit_all_warnings!
 
@@ -9,10 +9,10 @@ inhibit_all_warnings!
 # use_frameworks!
 
 target 'NBKitDev' do
-    pod 'AFNetworking', '~> 2.5'
-    # pod 'CocoaLumberjack'
+    pod 'NBKit', :path => './'
+    
+    pod 'AFNetworking'
     # pod 'ELCImagePickerController'
-    pod 'FLEX', '~> 1.1', :configurations => ['Debug']
     pod 'M9Dev', :git => 'https://github.com/iwill/M9Dev.git', :branch => 'public'
     pod 'Masonry'
     pod 'MBProgressHUD'
@@ -21,6 +21,9 @@ target 'NBKitDev' do
     pod 'SDWebImage'
     # pod 'TMCache'
     pod 'YYModel'
+    
+    # pod 'CocoaLumberjack'
+    pod 'FLEX', :configurations => ['Debug']
 end
 
 target 'NBKitDevTests' do
