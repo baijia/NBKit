@@ -148,6 +148,10 @@ const unsigned int kFLEXNumberOfImplicitArgs = 2;
             BOOL boolValue = NO;
             [value getValue:&boolValue];
             description = boolValue ? @"YES" : @"NO";
+        } else if (strcmp(type, @encode(SEL)) == 0) {
+            SEL selector = NULL;
+            [value getValue:&selector];
+            description = NSStringFromSelector(selector);
         }
     }
     
@@ -202,6 +206,13 @@ const unsigned int kFLEXNumberOfImplicitArgs = 2;
 {
     id value = nil;
     const char *type = ivar_getTypeEncoding(ivar);
+#ifdef __arm64__
+    // See http://www.sealiesoftware.com/blog/archive/2013/09/24/objc_explain_Non-pointer_isa.html
+    const char *name = ivar_getName(ivar);
+    if (type[0] == @encode(Class)[0] && strcmp(name, "isa") != 0) {
+        value = object_getClass(object);
+    } else
+#endif
     if (type[0] == @encode(id)[0] || type[0] == @encode(Class)[0]) {
         value = object_getIvar(object, ivar);
     } else {
@@ -317,7 +328,7 @@ const unsigned int kFLEXNumberOfImplicitArgs = 2;
                 // Bridging UIColor to CGColorRef
                 CGColorRef colorRef = [argumentObject CGColor];
                 [invocation setArgument:&colorRef atIndex:argumentIndex];
-            } else if ([argumentObject isKindOfClass:[NSValue class]]){
+            } else if ([argumentObject isKindOfClass:[NSValue class]]) {
                 // Primitive boxed in NSValue
                 NSValue *argumentValue = (NSValue *)argumentObject;
                 
@@ -579,7 +590,7 @@ const unsigned int kFLEXNumberOfImplicitArgs = 2;
     if (encodingCString[0] == '@') {
         NSString *class = [encodingString substringFromIndex:1];
         class = [class stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        if ([class length] == 0) {
+        if ([class length] == 0 || [class isEqual:@"?"]) {
             class = @"id";
         } else {
             class = [class stringByAppendingString:@" *"];

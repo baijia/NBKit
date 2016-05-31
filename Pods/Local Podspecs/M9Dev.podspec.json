@@ -1,8 +1,8 @@
 {
   "name": "M9Dev",
-  "version": "0.0.10",
+  "version": "0.0.14",
   "summary": "Objective-C development utilities for iOS.",
-  "description": "# M9Dev\n\nObjective-C development utilities for iOS.",
+  "description": "M9Dev\n=====\n\nObjective-C development utilities for iOS.",
   "homepage": "http://iwill.im/",
   "license": {
     "type": "MIT",
@@ -13,11 +13,11 @@
   },
   "social_media_url": "https://github.com/iwill",
   "platforms": {
-    "ios": "6.0"
+    "ios": "7.0"
   },
   "source": {
     "git": "https://github.com/iwill/M9Dev.git",
-    "tag": "0.0.10"
+    "tag": "0.0.14"
   },
   "source_files": "M9Dev/M9Dev.h",
   "public_header_files": "M9Dev/M9Dev.h",
@@ -35,10 +35,10 @@
   ],
   "requires_arc": true,
   "dependencies": {
-    "Masonry": [
+    "JRSwizzle": [
 
     ],
-    "JRSwizzle": [
+    "Masonry": [
 
     ],
     "NSString-UrlEncode": [

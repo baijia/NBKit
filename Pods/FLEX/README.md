@@ -1,4 +1,11 @@
 # FLEX
+[![CocoaPods](https://img.shields.io/cocoapods/v/FLEX.svg)](http://cocoapods.org/?q=FLEX)
+ [![CocoaPods](https://img.shields.io/cocoapods/l/FLEX.svg)](https://github.com/Flipboard/FLEX/blob/master/LICENSE)
+ [![CocoaPods](https://img.shields.io/cocoapods/p/FLEX.svg)]()
+ [![Twitter: @ryanolsonk](https://img.shields.io/badge/contact-@ryanolsonk-blue.svg?style=flat)](https://twitter.com/ryanolsonk)
+ [![Build Status](https://travis-ci.org/Flipboard/FLEX.svg?branch=master)](https://travis-ci.org/Flipboard/FLEX)
+ [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 FLEX (Flipboard Explorer) is a set of in-app debugging and exploration tools for iOS development. When presented, FLEX shows a toolbar that lives in a window above your application. From this toolbar, you can view and modify nearly every piece of state in your running application.
 
 ![View Hierarchy Exploration](http://engineering.flipboard.com/assets/flex/basic-view-exploration.gif)
@@ -9,6 +16,9 @@ FLEX (Flipboard Explorer) is a set of in-app debugging and exploration tools for
 - See the properties and ivars on any object.
 - Dynamically modify many properties and ivars.
 - Dynamically call instance and class methods.
+- Observe detailed network request history with timing, headers, and full responses.
+- Add your own simulator keyboard shortcuts.
+- View system log messages (e.g. from `NSLog`).
 - Access any live object via a scan of the heap.
 - View the file system within your app's sandbox.
 - Explore all classes in your app and linked systems frameworks (public and private).
@@ -19,6 +29,9 @@ Unlike many other debugging tools, FLEX runs entirely inside your app, so you do
 
 
 ## Usage
+
+In the iOS simulator, you can use keyboard shortcuts to activate FLEX. `f` will toggle the FLEX toolbar. Hit the `?` key for a full list of shortcuts. You can also show FLEX programatically:
+
 Short version:
 
 ```objc
@@ -52,10 +65,20 @@ Once a view is selected, you can tap on the info bar below the toolbar to presen
 
 ![View Modification](http://engineering.flipboard.com/assets/flex/advanced-view-editing.gif)
 
+### Network History
+When enabled, network debugging allows you to view all requests made using NSURLConnection or NSURLSession. Settings allow you to adjust what kind of response bodies get cached and the maximum size limit of the response cache. You can choose to have network debugging enabled automatically on app launch. This setting is persisted across launches.
+
+![Network History](http://engineering.flipboard.com/assets/flex/network-history.gif)
+
 ### All Objects on the Heap
 FLEX queries malloc for all the live allocated memory blocks and searches for ones that look like objects. You can see everything from here.
 
 ![Heap Exploration](http://engineering.flipboard.com/assets/flex/heap-browser.gif)
+
+### Simulator Keyboard Shortcuts
+Default keyboard shortcuts allow you to activate the FLEX tools, scroll with the arrow keys, and close modals using the escape key. You can also add custom keyboard shortcuts via `-[FLEXMananger registerSimulatorShortcutWithKey:modifiers:action:description]`
+
+![Simulator Shortcuts](https://cloud.githubusercontent.com/assets/1422245/10002927/1106fd32-6067-11e5-8e21-57a357c259b6.png)
 
 ### File Browser
 View the file system within your app's sandbox. FLEX shows file sizes, image previews, and pretty prints `.json` and `.plist` files. You can copy text and image files to the pasteboard if you want to inspect them outside of your app.
@@ -79,16 +102,17 @@ The code injection is left as an exercise for the reader. :innocent:
 
 
 ## Installation
-FLEX is available on [Cocoapods](http://cocoapods.org/). Simply add the following line to your podfile:
+FLEX is available on [Cocoapods](http://cocoapods.org/?q=FLEX). Simply add the following line to your podfile:
 
 ```ruby
-pod 'FLEX', '~> 1.1'
+pod 'FLEX', '~> 2.0', :configurations => ['Debug']
 ```
 
-Alternatively, you can manually add the files in `Classes/` to your Xcode project. FLEX requires iOS 6 or higher.
+Alternatively, you can manually add the files in `Classes/` to your Xcode project. FLEX requires iOS 7 or higher.
 
 
 ## Excluding FLEX from Release (App Store) Builds
+*Note: CocoaPods handles this automatically if you only specify the Debug configuration for FLEX in your Podfile.*
 FLEX makes it easy to explore the internals of your app, so it is not something you should expose to your users. Fortunately, it is easy to exclude FLEX files from Release builds. In Xcode, navigate to the "Build Settings" tab of your project. Click the plus and select `Add User-Defined Setting`.
 
 ![Add User-Defined Setting](http://engineering.flipboard.com/assets/flex/flex-readme-exclude-1.png)
@@ -117,31 +141,15 @@ FLEX builds on ideas and inspiration from open source tools that came before it.
 - [heap_find.cpp](https://www.opensource.apple.com/source/lldb/lldb-179.1/examples/darwin/heap_find/heap/heap_find.cpp): an example of enumerating malloc blocks for finding objects on the heap.
 - [Gist](https://gist.github.com/samdmarshall/17f4e66b5e2e579fd396) from [@samdmarshall](https://github.com/samdmarshall): another example of enumerating malloc blocks.
 - [Non-pointer isa](http://www.sealiesoftware.com/blog/archive/2013/09/24/objc_explain_Non-pointer_isa.html): an explanation of changes to the isa field on iOS for ARM64 and mention of the useful `objc_debug_isa_class_mask` variable.
+- [GZIP](https://github.com/nicklockwood/GZIP): A library for compressing/decompressing data on iOS using libz.
+
 
 
 ## Contributing
 We welcome pull requests for bug fixes, new features, and improvements to FLEX. Contributors to the main FLEX repository must accept Flipboard's Apache-style [Individual Contributor License Agreement (CLA)](https://docs.google.com/forms/d/1gh9y6_i8xFn6pA15PqFeye19VqasuI9-bGp_e0owy74/viewform) before any changes can be merged.
 
 
-## Changes
-
-#### v1.2.0 (in progress)
-- Search bar filtering and sorting by file size in the file browser (@DaidoujiChen)
-
-#### v1.1.0 2014/7/31
-- Support adding custom entries to the "Globals" menu (@JaviSoto)
-- Warnings cleanup (@JaviSoto)
-- WYSIWYG font picker input view (@DaidoujiChen)
-- Small bug fixes around status bar styling, rotation, and ivar value display (@ryanolsonk)
-
-#### v1.0.1 2014/07/26
-- Warnings cleanup and small bugfixes with rotation and interface orientations (@ryanolsonk)
-
-
 ## TODO
 - Swift runtime introspection (swift classes, swift objects on the heap, etc.)
-- Network request logging
 - Improved file type detection and display in the file browser
 - Add new NSUserDefault key/value pairs on the fly
-
-Have a question or suggestion for FLEX? Contact [@ryanolsonk](https://twitter.com/ryanolsonk) on twitter.

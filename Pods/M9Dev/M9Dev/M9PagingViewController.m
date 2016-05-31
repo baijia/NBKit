@@ -161,6 +161,11 @@ static void *KVOContext_M9PagingViewController = &KVOContext_M9PagingViewControl
     [self addChildViewControllerOfPage:page];
     [self didScrollToPage:page animated:animated];
     
+    /**
+     *  @see http://stackoverflow.com/a/19711940/456536
+     */
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (NSInteger i = 1; i <= PreloadViewControllers; i++) {
             [self loadChildViewControllerOfPage:page + i];
@@ -276,7 +281,7 @@ static void *KVOContext_M9PagingViewController = &KVOContext_M9PagingViewControl
 #pragma mark - <UIScrollViewDelegate>
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if ([_SUPER_CLASS instancesRespondToSelector:_cmd]) {
+    if ([[_THIS_CLASS superclass] instancesRespondToSelector:_cmd]) {
         [super scrollViewWillBeginDragging:scrollView];
     }
     
@@ -299,7 +304,7 @@ static void *KVOContext_M9PagingViewController = &KVOContext_M9PagingViewControl
 }
 
 /* - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    if ([_SUPER_CLASS instancesRespondToSelector:_cmd]) {
+    if ([[_THIS_CLASS superclass] instancesRespondToSelector:_cmd]) {
         [super scrollViewWillBeginDecelerating:scrollView];
     }
     
@@ -312,7 +317,7 @@ static void *KVOContext_M9PagingViewController = &KVOContext_M9PagingViewControl
 } */
 
 - (void)scrollViewDidEndScrolling:(UIScrollView *)scrollView {
-    if ([_SUPER_CLASS instancesRespondToSelector:_cmd]) {
+    if ([[_THIS_CLASS superclass] instancesRespondToSelector:_cmd]) {
         [super scrollViewDidEndScrolling:scrollView];
     }
     
@@ -329,6 +334,28 @@ static void *KVOContext_M9PagingViewController = &KVOContext_M9PagingViewControl
             [self removeChildViewControllerOfPage:page];
         }
     }
+}
+
+@end
+
+#pragma mark -
+
+/**
+ *  @see http://stackoverflow.com/a/19711940/456536
+ */
+
+@interface M9PagingViewController (UIStatusBarStyle)
+
+@end
+
+@implementation M9PagingViewController (UIStatusBarStyle)
+
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return [self viewControllerOfPage:self.currentPage];
+}
+
+- (UIViewController *)childViewControllerForStatusBarHidden {
+    return [self viewControllerOfPage:self.currentPage];
 }
 
 @end

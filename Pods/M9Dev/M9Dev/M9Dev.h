@@ -30,6 +30,7 @@
 /* Foundation */
 #import "NSArray+M9.h"
 #import "NSData+M9.h"
+#import "NSDate+M9.h"
 #import "NSDictionary+M9.h"
 #import "NSInvocation+M9.h"
 #import "NSObject+AssociatedValues.h"
@@ -49,6 +50,7 @@
 #import "M9TableViewController.h"
 #import "M9PagingViewController.h"
 #import "UINavigationController+M9.h"
+#import "UIViewController+EventNotifications.h"
 #import "UIViewController+M9.h"
 
 #endif

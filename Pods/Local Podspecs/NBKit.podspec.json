@@ -1,0 +1,55 @@
+{
+  "name": "NBKit",
+  "version": "0.0.3",
+  "summary": "iOS Newbies Development Kit.",
+  "description": "iOS Newbies Development Kit.",
+  "homepage": "http://git.baijiahulian.com/iOS/NBKit",
+  "license": "MIT",
+  "authors": {
+    "iwill": "minglq.9@gmail.com"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "http://git.baijiahulian.com/iOS/NBKit.git",
+    "tag": "0.0.3"
+  },
+  "source_files": [
+    "NBKit",
+    "NBKit/**/*.{h,m}"
+  ],
+  "public_header_files": "NBKit/**/*.h",
+  "resource_bundles": {
+    "NBKit": [
+      "NBKit.bundle/*"
+    ]
+  },
+  "frameworks": [
+    "CoreGraphics",
+    "Foundation",
+    "UIKit",
+    "QuartzCore"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "M9Dev": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "MBProgressHUD": [
+
+    ],
+    "SDWebImage": [
+
+    ],
+    "YYModel": [
+
+    ]
+  }
+}

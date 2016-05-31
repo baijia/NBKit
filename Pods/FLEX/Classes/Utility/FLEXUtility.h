@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
 #define FLEXFloor(x) (floor([[UIScreen mainScreen] scale] * (x)) / [[UIScreen mainScreen] scale])
 
@@ -30,5 +31,19 @@
 + (UIInterfaceOrientationMask)infoPlistSupportedInterfaceOrientationsMask;
 + (NSString *)searchBarPlaceholderText;
 + (BOOL)isImagePathExtension:(NSString *)extension;
++ (UIImage *)thumbnailedImageWithMaxPixelDimension:(NSInteger)dimension fromImageData:(NSData *)data;
++ (NSString *)stringFromRequestDuration:(NSTimeInterval)duration;
++ (NSString *)statusCodeStringFromURLResponse:(NSURLResponse *)response;
++ (NSDictionary *)dictionaryFromQuery:(NSString *)query;
++ (NSString *)prettyJSONStringFromData:(NSData *)data;
++ (BOOL)isValidJSONData:(NSData *)data;
++ (NSData *)inflatedDataFromCompressedData:(NSData *)compressedData;
+
+// Swizzling utilities
+
++ (SEL)swizzledSelectorForSelector:(SEL)selector;
++ (BOOL)instanceRespondsButDoesNotImplementSelector:(SEL)selector class:(Class)cls;
++ (void)replaceImplementationOfKnownSelector:(SEL)originalSelector onClass:(Class)class withBlock:(id)block swizzledSelector:(SEL)swizzledSelector;
++ (void)replaceImplementationOfSelector:(SEL)selector withSelector:(SEL)swizzledSelector forClass:(Class)cls withMethodDescription:(struct objc_method_description)methodDescription implementationBlock:(id)implementationBlock undefinedBlock:(id)undefinedBlock;
 
 @end
