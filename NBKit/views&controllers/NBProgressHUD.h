@@ -17,7 +17,7 @@ typedef void (^NBProgressHUDCallback)(NBProgressHUD *hud);
 
 @property (nonatomic) BOOL passThroughTouches; // default: NO
 @property (nonatomic) NSTimeInterval duration;
-@property (nonatomic, copy) NBProgressHUDCallback completion;
+@property (nonatomic, copy) NBProgressHUDCallback completion DEPRECATED_ATTRIBUTE; // @see completionBlock
 
 /**
  *  mode:                       MBProgressHUDModeText
@@ -28,6 +28,5 @@ typedef void (^NBProgressHUDCallback)(NBProgressHUD *hud);
 + (NBProgressHUD *)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
 + (NBProgressHUD *)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
 + (NBProgressHUD *)showHUDWithConfig:(NBProgressHUDCallback)config superview:(UIView *)superview animated:(BOOL)animated;
-//for UIViewController loading view
-+ (NBProgressHUD *)showHUDWithConfigForLoading:(NBProgressHUDCallback)config superview:(UIView *)superview animated:(BOOL)animated;
+
 @end

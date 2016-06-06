@@ -17,13 +17,13 @@
         self.passThroughTouches = YES;
         self.duration = NBProgressHUDTimeInterval;
         self.removeFromSuperViewOnHide = YES;
-        [super setDelegate:self];
+        // self.minShowTime = 0.5;
     }
     return self;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if (self.passThroughTouches && !self.completion) {
+    if (self.passThroughTouches) {
         return nil;
     }
     return [super hitTest:point withEvent:event];
@@ -34,13 +34,12 @@
     [self hide:animated afterDelay:self.duration];
 }
 
-#pragma mark - <MBProgressHUDDelegate>
-
-- (void)setDelegate:(id<MBProgressHUDDelegate>)delegate {
-}
-
-- (void)hudWasHidden:(MBProgressHUD *)hud {
-    if (self.completion) self.completion(self);
+- (void)setCompletion:(NBProgressHUDCallback)completion {
+    __weak typeof(self) __self = self;
+    self.completionBlock = ^{
+        __strong typeof(self) self = __self;
+        if (completion) completion(self);
+    };
 }
 
 #pragma mark -
@@ -72,14 +71,23 @@
 + (NBProgressHUD *)showHUDWithConfig:(NBProgressHUDCallback)config superview:(UIView *)superview animated:(BOOL)animated {
     NBProgressHUD *hud = [self hudWithSuperview:superview];
     if (config) config(hud);
-    [hud showAndAutoHideAnimated:animated];
+    if (hud.duration > DBL_EPSILON) {
+        [hud showAndAutoHideAnimated:animated];
+    }
+    else {
+        [hud show:animated];
+    }
     return hud;
 }
 
+// TODO: remove
 + (NBProgressHUD *)showHUDWithConfigForLoading:(NBProgressHUDCallback)config superview:(UIView *)superview animated:(BOOL)animated {
-    NBProgressHUD *hud = [self hudWithSuperview:superview];
-    if (config) config(hud);
-    [hud show:animated];
-    return hud;
+    return [self showHUDWithConfig:^(NBProgressHUD *hud) {
+        if (config) {
+            config(hud);
+        }
+        hud.duration = 0.0;
+    } superview:superview animated:animated];
 }
+
 @end
