@@ -11,16 +11,8 @@ inhibit_all_warnings!
 target 'NBKitDev' do
     pod 'NBKit', :path => './'
     
-    pod 'AFNetworking'
     # pod 'ELCImagePickerController'
     pod 'M9Dev', :git => 'https://github.com/iwill/M9Dev.git', :branch => 'public'
-    pod 'Masonry'
-    pod 'MBProgressHUD'
-    # pod 'ReactiveCocoa'
-    # pod 'ReactiveViewModel'
-    pod 'SDWebImage'
-    # pod 'TMCache'
-    pod 'YYModel'
     
     # pod 'CocoaLumberjack'
     pod 'FLEX', :configurations => ['Debug']
