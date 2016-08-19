@@ -8,25 +8,29 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@class NBProgressHUD;
-
 static const NSTimeInterval NBProgressHUDTimeInterval = 2.0;
-typedef void (^NBProgressHUDCallback)(NBProgressHUD *hud);
+typedef NSTimeInterval (^NBProgressHUDBlock)(MBProgressHUD *hud);
 
-@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
+/**
+ *  duration:                   NBProgressHUDTimeInterval
+ */
+@interface MBProgressHUD (NBKit)
 
-@property (nonatomic) BOOL passThroughTouches; // default: NO
-@property (nonatomic) NSTimeInterval duration;
-@property (nonatomic, copy) NBProgressHUDCallback completion DEPRECATED_ATTRIBUTE; // @see completionBlock
++ (instancetype)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
++ (instancetype)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
++ (instancetype)showHUDWithConfig:(NBProgressHUDBlock)config superview:(UIView *)superview animated:(BOOL)animated;
+
+@end
+
+#pragma mark -
 
 /**
  *  mode:                       MBProgressHUDModeText
  *  passThroughTouches:         YES
- *  duration:                   NBProgressHUDTimeInterval
  *  removeFromSuperViewOnHide:  YES
  */
-+ (NBProgressHUD *)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
-+ (NBProgressHUD *)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
-+ (NBProgressHUD *)showHUDWithConfig:(NBProgressHUDCallback)config superview:(UIView *)superview animated:(BOOL)animated;
+@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
+
+@property (nonatomic) BOOL passThroughTouches; // default: YES
 
 @end
