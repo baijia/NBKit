@@ -1,5 +1,4 @@
-# source 'https://github.com/CocoaPods/Specs.git'
-source 'https://gitcafe.com/akuandev/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
 
@@ -9,6 +8,7 @@ inhibit_all_warnings!
 # use_frameworks!
 
 target 'NBKitDev' do
+    
     pod 'NBKit', :path => './'
     
     # pod 'ELCImagePickerController'
@@ -16,12 +16,15 @@ target 'NBKitDev' do
     
     # pod 'CocoaLumberjack'
     pod 'FLEX', :configurations => ['Debug']
-end
-
-target 'NBKitDevTests' do
-
-end
-
-target 'NBKitDevUITests' do
-
+    
+    target 'NBKitDevTests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
+    target 'NBKitDevUITests' do
+        inherit! :search_paths
+        # Pods for testing
+    end
+    
 end
