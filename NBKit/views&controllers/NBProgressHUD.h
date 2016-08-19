@@ -64,11 +64,9 @@ typedef NSTimeInterval (^MBProgressHUDConfig)(MBProgressHUD *hud);
 /**
  *  The default value of the following properties are different from MBProgressHUD.
  *  Support pass through touches if `passThroughTouches` is YES.
- *
- *  passThroughTouches:         YES
  */
 @interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
 
-@property (nonatomic, readwrite) BOOL passThroughTouches;
+@property (nonatomic, readwrite) BOOL passThroughTouches; // default: YES
 
 @end
