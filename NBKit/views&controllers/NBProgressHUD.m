@@ -10,8 +10,17 @@
 
 @implementation MBProgressHUD (NBKit)
 
+@dynamic passThroughTouches;
+
+- (BOOL)passThroughTouches {
+    return YES;
+}
+
 + (instancetype)hudWithSuperview:(UIView *)superview {
     MBProgressHUD *hud = [[self alloc] initWithView:superview];
+    hud.mode = MBProgressHUDModeText;
+    hud.removeFromSuperViewOnHide = YES;
+    // hud.minShowTime = 0.5;
     [superview addSubview:hud];
     return hud;
 }
@@ -23,7 +32,7 @@
     hud.detailsLabelColor = hud.labelColor;
     hud.detailsLabelText = text;
     [hud show:animated];
-    [hud hide:animated afterDelay:NBProgressHUDTimeInterval];
+    [hud hide:animated afterDelay:MBProgressHUDTimeInterval];
     return hud;
 }
 
@@ -32,16 +41,16 @@
     hud.labelText = text;
     hud.detailsLabelText = details;
     [hud show:animated];
-    [hud hide:animated afterDelay:NBProgressHUDTimeInterval];
+    [hud hide:animated afterDelay:MBProgressHUDTimeInterval];
     return hud;
 }
 
-+ (instancetype)showHUDWithConfig:(NBProgressHUDBlock)config superview:(UIView *)superview animated:(BOOL)animated {
++ (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self hudWithSuperview:superview];
-    NSTimeInterval duration = config ? config(hud) : NBProgressHUDTimeInterval;
-    if (duration > DBL_EPSILON) {
+    NSTimeInterval timeInterval = config ? config(hud) : MBProgressHUDTimeInterval;
+    if (timeInterval > 0.0) {
         [hud show:animated];
-        [hud hide:animated afterDelay:duration];
+        [hud hide:animated afterDelay:timeInterval];
     }
     else {
         [hud show:animated];
@@ -55,13 +64,12 @@
 
 @implementation NBProgressHUD
 
+@synthesize passThroughTouches = _passThroughTouches;
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.mode = MBProgressHUDModeText;
         self.passThroughTouches = YES;
-        self.removeFromSuperViewOnHide = YES;
-        // self.minShowTime = 0.5;
     }
     return self;
 }

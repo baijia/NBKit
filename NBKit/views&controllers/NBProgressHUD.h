@@ -8,29 +8,65 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
-static const NSTimeInterval NBProgressHUDTimeInterval = 2.0;
-typedef NSTimeInterval (^NBProgressHUDBlock)(MBProgressHUD *hud);
+static const NSTimeInterval MBProgressHUDTimeInterval = 2.0;
 
 /**
- *  duration:                   NBProgressHUDTimeInterval
+ *  MBProgressHUDConfig     MBProgressHUD config block
+ *  @param hud              hud instance to config
+ *  @return return          hud display time interval
+ */
+typedef NSTimeInterval (^MBProgressHUDConfig)(MBProgressHUD *hud);
+
+/**
+ *  MBProgressHUD extention
  */
 @interface MBProgressHUD (NBKit)
 
+/**
+ *  NO for MBProgressHUD, YES for NBProgressHUD
+ */
+@property (nonatomic, readonly) BOOL passThroughTouches;
+
+/**
+ *  Create hud with default configurations.
+ *  mode:                       MBProgressHUDModeText
+ *  passThroughTouches:         NO for MBProgressHUD, YES for NBProgressHUD
+ *  removeFromSuperViewOnHide:  YES
+ */
++ (instancetype)hudWithSuperview:(UIView *)superview;
+
+/**
+ *  Create hud with method `hudWithSuperview:`.
+ *  Support multiple line text - by displaying `text` in `detailsLabel`
+ *  Auto-hide after MBProgressHUDTimeInterval
+ */
 + (instancetype)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
+
+/**
+ *  Create hud with method `hudWithSuperview:`.
+ *  Not support multiple line text
+ *  Auto-hide after MBProgressHUDTimeInterval
+ */
 + (instancetype)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
-+ (instancetype)showHUDWithConfig:(NBProgressHUDBlock)config superview:(UIView *)superview animated:(BOOL)animated;
+
+/**
+ *  Create hud with method `hudWithSuperview:`.
+ *  Auto-hide if `timeInterval` greater than 0.0, not otherwise, `timeInterval` returned from config block.
+ */
++ (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
 
 @end
 
 #pragma mark -
 
 /**
- *  mode:                       MBProgressHUDModeText
+ *  The default value of the following properties are different from MBProgressHUD.
+ *  Support pass through touches if `passThroughTouches` is YES.
+ *
  *  passThroughTouches:         YES
- *  removeFromSuperViewOnHide:  YES
  */
 @interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
 
-@property (nonatomic) BOOL passThroughTouches; // default: YES
+@property (nonatomic, readwrite) BOOL passThroughTouches;
 
 @end
