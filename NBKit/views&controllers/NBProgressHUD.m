@@ -8,12 +8,35 @@
 
 #import "NBProgressHUD.h"
 
+@implementation NBProgressHUD
+
+@synthesize passThroughTouches = _passThroughTouches;
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.passThroughTouches = YES;
+    }
+    return self;
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if (self.passThroughTouches) {
+        return nil;
+    }
+    return [super hitTest:point withEvent:event];
+}
+
+@end
+
+#pragma mark -
+
 @implementation MBProgressHUD (NBKit)
 
 @dynamic passThroughTouches;
 
 - (BOOL)passThroughTouches {
-    return YES;
+    return NO;
 }
 
 + (instancetype)hudWithSuperview:(UIView *)superview {
@@ -56,29 +79,6 @@
         [hud show:animated];
     }
     return hud;
-}
-
-@end
-
-#pragma mark -
-
-@implementation NBProgressHUD
-
-@synthesize passThroughTouches = _passThroughTouches;
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.passThroughTouches = YES;
-    }
-    return self;
-}
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    if (self.passThroughTouches) {
-        return nil;
-    }
-    return [super hitTest:point withEvent:event];
 }
 
 @end

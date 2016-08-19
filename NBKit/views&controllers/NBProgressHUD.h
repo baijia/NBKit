@@ -8,6 +8,18 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
+/**
+ *  The default value of the following properties are different from MBProgressHUD.
+ *  Support pass through touches if `passThroughTouches` is YES.
+ */
+@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
+
+@property (nonatomic, readwrite) BOOL passThroughTouches; // default: YES
+
+@end
+
+#pragma mark -
+
 static const NSTimeInterval MBProgressHUDTimeInterval = 2.0;
 
 /**
@@ -56,17 +68,5 @@ typedef NSTimeInterval (^MBProgressHUDConfig)(MBProgressHUD *hud);
  *  Auto-hide if `timeInterval` greater than 0.0, not otherwise, `timeInterval` returned from config block.
  */
 + (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
-
-@end
-
-#pragma mark -
-
-/**
- *  The default value of the following properties are different from MBProgressHUD.
- *  Support pass through touches if `passThroughTouches` is YES.
- */
-@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
-
-@property (nonatomic, readwrite) BOOL passThroughTouches; // default: YES
 
 @end
