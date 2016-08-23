@@ -1,9 +1,9 @@
 //
 //  NBProgressHUD.m
-//  NBFramework
+//  NBKit
 //
 //  Created by MingLQ on 2015-11-11.
-//  Copyright © 2015年 Baijiahulian. All rights reserved.
+//  Copyright © 2016年 iOSNewbies. All rights reserved.
 //
 
 #import "NBProgressHUD.h"

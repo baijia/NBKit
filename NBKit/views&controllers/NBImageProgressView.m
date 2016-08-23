@@ -1,9 +1,9 @@
 //
 //  NBImageProgressView.m
-//  NBFramework
+//  NBKit
 //
 //  Created by MingLQ on 2015-10-20.
-//  Copyright © 2015年 Baijiahulian. All rights reserved.
+//  Copyright © 2016年 iOSNewbies. All rights reserved.
 //
 
 #import <Masonry/Masonry.h>

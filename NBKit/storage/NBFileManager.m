@@ -1,9 +1,9 @@
 //
 //  NBFileManager.m
-//  BJEducation
+//  NBKit
 //
 //  Created by MingLQ on 2015-11-28.
-//  Copyright © 2015年 com.bjhl. All rights reserved.
+//  Copyright © 2016年 iOSNewbies. All rights reserved.
 //
 
 #import "NBFileManager.h"
