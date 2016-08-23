@@ -8,18 +8,6 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
-/**
- *  The default value of the following properties are different from MBProgressHUD.
- *  Support pass through touches if `passThroughTouches` is YES.
- */
-@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
-
-@property (nonatomic, readwrite) BOOL passThroughTouches; // default: YES
-
-@end
-
-#pragma mark -
-
 static const NSTimeInterval MBProgressHUDTimeInterval = 2.0;
 
 /**
@@ -27,46 +15,105 @@ static const NSTimeInterval MBProgressHUDTimeInterval = 2.0;
  *  @param hud              hud instance to config
  *  @return return          hud display time interval
  */
-typedef NSTimeInterval (^MBProgressHUDConfig)(MBProgressHUD *hud);
+typedef NSTimeInterval (^MBProgressHUDConfig)(__kindof MBProgressHUD *hud);
 
 /**
  *  MBProgressHUD extention
- *
- *  TODO: nb_prefix
  */
 @interface MBProgressHUD (NBKit)
 
 /**
  *  NO for MBProgressHUD, YES for NBProgressHUD
  */
-@property (nonatomic, readonly) BOOL passThroughTouches;
+@property (nonatomic, readonly) BOOL nb_passThroughTouches;
 
 /**
- *  Create hud with default configurations.
- *  mode:                       MBProgressHUDModeText
- *  passThroughTouches:         NO for MBProgressHUD, YES for NBProgressHUD
- *  removeFromSuperViewOnHide:  YES
+ *  Create hud:
+ *  nb_passThroughTouches       NO
+ *  removeFromSuperViewOnHide   YES
  */
-+ (instancetype)hudWithSuperview:(UIView *)superview;
++ (instancetype)nb_hudWithSuperview:(UIView *)superview;
 
 /**
- *  Create hud with method `hudWithSuperview:`.
+ *  Create hud for text:
+ *  mode                        MBProgressHUDModeText
+ *  nb_passThroughTouches       YES
+ *  removeFromSuperViewOnHide   YES
+ */
++ (instancetype)nb_hudForTextWithSuperview:(UIView *)superview;
+
+/**
+ *  Create hud for loading:
+ *  mode                        MBProgressHUDModeIndeterminate - UIActivityIndicatorView
+ *  nb_passThroughTouches       NO
+ *  removeFromSuperViewOnHide   YES
+ */
++ (instancetype)nb_hudForLoadingWithSuperview:(UIView *)superview;
+
+@end
+
+#pragma mark -
+
+@interface MBProgressHUD (NBKitShowing)
+
+/**
+ *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Support multiple line text - by displaying `text` in `detailsLabel`
  *  Auto-hide after MBProgressHUDTimeInterval
  */
-+ (instancetype)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
++ (instancetype)nb_showHUDForText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
 
 /**
- *  Create hud with method `hudWithSuperview:`.
+ *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Not support multiple line text
  *  Auto-hide after MBProgressHUDTimeInterval
  */
-+ (instancetype)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
++ (instancetype)nb_showHUDForText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
 
 /**
- *  Create hud with method `hudWithSuperview:`.
+ *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Auto-hide if `timeInterval` greater than 0.0, not otherwise, `timeInterval` returned from config block.
  */
-+ (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
++ (instancetype)nb_showHUDForTextWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
+
+/**
+ *  Create hud for loading with method `hudForLoadingWithSuperview:`.
+ */
++ (instancetype)nb_showHUDForLoadingWithSuperview:(UIView *)superview animated:(BOOL)animated;
+
+/**
+ *  Create hud for loading with method `hudForLoadingWithSuperview:`.
+ *  NOT to auto-hide, ignore `timeInterval` returned from config block.
+ */
++ (instancetype)nb_showHUDForLoadingWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
+
+@end
+
+#pragma mark -
+
+/**
+ *  Support pass through touches if `nb_passThroughTouches` is YES.
+ */
+@interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
+
+@property (nonatomic, readwrite) BOOL nb_passThroughTouches; // default: NO
+
+@end
+
+#pragma mark - DEPRECATED
+
+@interface MBProgressHUD (DEPRECATED)
+
+@property (nonatomic, readonly) BOOL passThroughTouches DEPRECATED_MSG_ATTRIBUTE("use `nb_passThroughTouches` instead");
+
++ (instancetype)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("use `nb_showHUDForText:superview:animated:` instead");
++ (instancetype)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("use `nb_showHUDForText:details:superview:animated:` instead");
++ (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_MSG_ATTRIBUTE("use `nb_showHUDForTextWithConfig:superview:animated:` instead");
+
+@end
+
+@interface NBProgressHUD (DEPRECATED)
+
+@property (nonatomic, readwrite) BOOL passThroughTouches DEPRECATED_MSG_ATTRIBUTE("use `nb_passThroughTouches` instead");
 
 @end
