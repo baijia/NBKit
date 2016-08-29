@@ -6,8 +6,6 @@
 //  Copyright © 2016年 iOSNewbies. All rights reserved.
 //
 
-#import <NBKit/NBRootViewController.h>
-
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -19,7 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [NBRootViewController sharedInstance];
+    self.window.rootViewController = [UIViewController new];
     [self.window makeKeyAndVisible];
     return YES;
 }

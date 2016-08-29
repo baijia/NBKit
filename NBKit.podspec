@@ -138,13 +138,13 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  # s.dependency "AFNetworking"
+  # s.dependency "AFNetworking", "~> 2.0"
   # s.dependency "CocoaLumberjack"
   # s.dependency "ELCImagePickerController"
-  s.dependency "M9Dev"
+  s.dependency "M9Dev", "~> 0.0"
   s.dependency "Masonry"
   s.dependency "MBProgressHUD"
-  # s.dependency "ReactiveCocoa"
+  s.dependency "ReactiveCocoa", "~> 2.0"
   # s.dependency "ReactiveViewModel"
   s.dependency "SDWebImage"
   # s.dependency "TMCache"
