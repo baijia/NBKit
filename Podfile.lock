@@ -41,7 +41,7 @@ PODS:
     - Reachability
   - Masonry (1.0.1)
   - MBProgressHUD (1.0.0)
-  - NBKit (0.0.5):
+  - NBKit (0.0.6):
     - M9Dev
     - Masonry
     - MBProgressHUD
@@ -78,7 +78,7 @@ SPEC CHECKSUMS:
   M9Dev: fe9b37c068bc21ee788fdf4853dfec648a9a4ae5
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  NBKit: b231bee38e9752b3eb0d6db6b3d9fbfec8889bdd
+  NBKit: 1c04724250debf24d102dab449d80e887465370c
   NSString-UrlEncode: 92dcb01cac33ef036cda76baf0e4378b18779e47
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
