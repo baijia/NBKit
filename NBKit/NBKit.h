@@ -19,6 +19,7 @@
 // views&controllers
 #import "NBButton.h"
 #import "NBImageProgressView.h"
+#import "NBLabel.h"
 #import "NBProgressHUD.h"
 #import "NBTableViewCell.h"
 #import "NBTextField.h"
