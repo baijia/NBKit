@@ -39,9 +39,9 @@ PODS:
     - Masonry
     - NSString-UrlEncode
     - Reachability
-  - Masonry (1.0.1)
+  - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
-  - NBKit (0.0.6):
+  - NBKit (0.0.7):
     - M9Dev (~> 0.0)
     - Masonry
     - MBProgressHUD
@@ -57,9 +57,9 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -76,7 +76,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   M9Dev:
-    :commit: a132f32cd3bdaea163bc4fed4a91cce9944c4538
+    :commit: 1cc44e88f678bc90050374889228d96c1ca59376
     :git: https://github.com/iwill/M9Dev.git
 
 SPEC CHECKSUMS:
@@ -84,13 +84,13 @@ SPEC CHECKSUMS:
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   M9Dev: 3edc3b73e4c2528d2c63d6adaa11a4855271ea32
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  NBKit: b5eb9d9bc333e01e8349953feda03b019a3763b7
+  NBKit: 9bb654ed1ea5514a1702fe2a191115028748ebdb
   NSString-UrlEncode: 92dcb01cac33ef036cda76baf0e4378b18779e47
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: e3f4203000668a2f209e80d5fe1bc1915c4bcd0d
