@@ -15,7 +15,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.nb_passThroughTouches = YES;
+        self.nb_passThroughTouches = NO;
     }
     return self;
 }
@@ -25,12 +25,6 @@
         return nil;
     }
     return [super hitTest:point withEvent:event];
-}
-
-+ (instancetype)nb_hudForTextWithSuperview:(UIView *)superview {
-    NBProgressHUD *hud = [super nb_hudForTextWithSuperview:superview];
-    hud.nb_passThroughTouches = YES;
-    return hud;
 }
 
 @end
@@ -43,6 +37,9 @@
 
 - (BOOL)nb_passThroughTouches {
     return NO;
+}
+
+- (void)setNb_passThroughTouches:(BOOL)passThroughTouches {
 }
 
 + (instancetype)nb_hudWithSuperview:(UIView *)superview {
@@ -73,6 +70,7 @@
 
 + (instancetype)nb_showHUDForText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
+    hud.nb_passThroughTouches = YES;
     // hud.labelText = text;
     hud.detailsLabelFont = hud.labelFont;
     hud.detailsLabelColor = hud.labelColor;
@@ -84,6 +82,7 @@
 
 + (instancetype)nb_showHUDForText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
+    hud.nb_passThroughTouches = YES;
     hud.labelText = text;
     hud.detailsLabelText = details;
     [hud show:animated];
@@ -93,6 +92,7 @@
 
 + (instancetype)nb_showHUDForTextWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
+    hud.nb_passThroughTouches = YES;
     NSTimeInterval timeInterval = config ? config(hud) : MBProgressHUDTimeInterval;
     if (timeInterval > 0.0) {
         [hud show:animated];
@@ -115,38 +115,6 @@
     if (config) config(hud);
     [hud show:animated];
     return hud;
-}
-
-@end
-
-#pragma mark -
-
-@implementation MBProgressHUD (DEPRECATED)
-
-@dynamic passThroughTouches;
-- (BOOL)passThroughTouches {
-    return self.nb_passThroughTouches;
-}
-
-+ (instancetype)showHUDWithText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_ATTRIBUTE {
-    return [self nb_showHUDForText:text superview:superview animated:animated];
-}
-
-+ (instancetype)showHUDWithText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_ATTRIBUTE {
-    return [self nb_showHUDForText:text details:details superview:superview animated:animated];
-}
-
-+ (instancetype)showHUDWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated DEPRECATED_ATTRIBUTE {
-    return [self nb_showHUDForTextWithConfig:config superview:superview animated:animated];
-}
-
-@end
-
-@implementation NBProgressHUD (DEPRECATED)
-
-@dynamic passThroughTouches;
-- (void)setPassThroughTouches:(BOOL)passThroughTouches {
-    [self setNb_passThroughTouches:passThroughTouches];
 }
 
 @end
