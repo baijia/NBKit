@@ -15,11 +15,13 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        // NOTE: associated object
         self.nb_passThroughTouches = NO;
     }
     return self;
 }
 
+// NOTE: swizzled method
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     if (self.nb_passThroughTouches) {
         return nil;
@@ -39,7 +41,7 @@
     return NO;
 }
 
-- (void)setNb_passThroughTouches:(BOOL)passThroughTouches {
+- (void)nb_setPassThroughTouches:(BOOL)passThroughTouches {
 }
 
 + (instancetype)nb_hudWithSuperview:(UIView *)superview {
@@ -70,7 +72,7 @@
 
 + (instancetype)nb_showHUDForText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
-    hud.nb_passThroughTouches = YES;
+    [hud nb_setPassThroughTouches:YES];
     // hud.labelText = text;
     hud.detailsLabelFont = hud.labelFont;
     hud.detailsLabelColor = hud.labelColor;
@@ -82,7 +84,7 @@
 
 + (instancetype)nb_showHUDForText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
-    hud.nb_passThroughTouches = YES;
+    [hud nb_setPassThroughTouches:YES];
     hud.labelText = text;
     hud.detailsLabelText = details;
     [hud show:animated];
@@ -92,7 +94,7 @@
 
 + (instancetype)nb_showHUDForTextWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
-    hud.nb_passThroughTouches = YES;
+    [hud nb_setPassThroughTouches:YES];
     NSTimeInterval timeInterval = config ? config(hud) : MBProgressHUDTimeInterval;
     if (timeInterval > 0.0) {
         [hud show:animated];

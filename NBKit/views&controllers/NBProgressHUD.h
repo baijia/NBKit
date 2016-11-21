@@ -57,7 +57,7 @@ typedef NSTimeInterval (^MBProgressHUDConfig)(__kindof MBProgressHUD *hud);
  *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Support multiple line text - by displaying `text` in `detailsLabel`.
  *  Auto-hide after MBProgressHUDTimeInterval.
- *  The value of property `nb_passThroughTouches` is YES.
+ *  The value of `nb_passThroughTouches` is YES(NBProgressHUD).
  */
 + (instancetype)nb_showHUDForText:(NSString *)text superview:(UIView *)superview animated:(BOOL)animated;
 
@@ -65,27 +65,27 @@ typedef NSTimeInterval (^MBProgressHUDConfig)(__kindof MBProgressHUD *hud);
  *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Not support multiple line text.
  *  Auto-hide after MBProgressHUDTimeInterval.
- *  The value of property `nb_passThroughTouches` is YES.
+ *  The value of `nb_passThroughTouches` is YES(NBProgressHUD).
  */
 + (instancetype)nb_showHUDForText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated;
 
 /**
  *  Create hud for text with method `hudForTextWithSuperview:`.
  *  Auto-hide if `timeInterval` greater than 0.0, not otherwise, `timeInterval` returned from config block.
- *  The value of property `nb_passThroughTouches` is YES by default.
+ *  The value of `nb_passThroughTouches` is YES(NBProgressHUD) by default.
  */
 + (instancetype)nb_showHUDForTextWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
 
 /**
  *  Create hud for loading with method `hudForLoadingWithSuperview:`.
- *  The value of property `nb_passThroughTouches` is NO.
+ *  The value of `nb_passThroughTouches` is NO.
  */
 + (instancetype)nb_showHUDForLoadingWithSuperview:(UIView *)superview animated:(BOOL)animated;
 
 /**
  *  Create hud for loading with method `hudForLoadingWithSuperview:`.
  *  NOT to auto-hide, ignore `timeInterval` returned from config block.
- *  The value of property `nb_passThroughTouches` is YES by default.
+ *  The value of `nb_passThroughTouches` is NO by default.
  */
 + (instancetype)nb_showHUDForLoadingWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated;
 
@@ -98,6 +98,6 @@ typedef NSTimeInterval (^MBProgressHUDConfig)(__kindof MBProgressHUD *hud);
  */
 @interface NBProgressHUD : MBProgressHUD <MBProgressHUDDelegate>
 
-@property (nonatomic, readwrite) BOOL nb_passThroughTouches; // default: NO
+@property (nonatomic, readwrite, setter=nb_setPassThroughTouches:) BOOL nb_passThroughTouches; // default: NO
 
 @end
