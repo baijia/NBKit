@@ -8,18 +8,38 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NBTextButton : UIButton
+/** set gap between image and title, 0 by default */
+@interface NBButton : UIButton
+
+@property (nonatomic) CGFloat gapBetweenImageAndTitle;
 
 @end
 
-@interface NBImageButton : UIButton
+/** image on the top, title on the bottom */
+@interface NBVerticalButton : NBButton
 
 @end
 
-@interface NBLeftBarButton : UIButton
+/** title only */
+@interface NBTitleButton : NBButton
+
+@end
+DEPRECATED_MSG_ATTRIBUTE("Use NBTitleButton instead.")
+@interface NBTextButton : NBTitleButton
 
 @end
 
-@interface NBRightBarButton : UIButton
+/** image only */
+@interface NBImageButton : NBButton
+
+@end
+
+/** move left, for the leftBarButtonItem only */
+@interface NBLeftBarButton : NBButton
+
+@end
+
+/** move right, for the rightBarButtonItem only */
+@interface NBRightBarButton : NBButton
 
 @end

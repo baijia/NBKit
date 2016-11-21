@@ -10,7 +10,50 @@
 
 #import <M9Dev/M9Dev.h>
 
-@implementation NBTextButton
+@implementation NBButton
+
+- (CGRect)imageRectForContentRect:(CGRect)contentRect {
+    CGRect imageRect = [super imageRectForContentRect:contentRect];
+    imageRect.origin.x -= self.gapBetweenImageAndTitle / 2;
+    return imageRect;
+}
+
+- (CGRect)titleRectForContentRect:(CGRect)contentRect {
+    CGRect titleRect = [super titleRectForContentRect:contentRect];
+    titleRect.origin.x += self.gapBetweenImageAndTitle / 2;
+    return titleRect;
+}
+
+@end
+
+#pragma mark -
+
+@implementation NBVerticalButton
+
+- (CGRect)imageRectForContentRect:(CGRect)contentRect {
+    CGRect imageRect = [super imageRectForContentRect:contentRect];
+    CGRect titleRect = [super titleRectForContentRect:contentRect];
+    imageRect.origin.x = (CGRectGetWidth(contentRect) - CGRectGetWidth(imageRect)) / 2;
+    imageRect.origin.y = (CGRectGetHeight(contentRect)
+                          - CGRectGetHeight(imageRect)
+                          - self.gapBetweenImageAndTitle
+                          - CGRectGetHeight(titleRect)) / 2;
+    return imageRect;
+}
+
+- (CGRect)titleRectForContentRect:(CGRect)contentRect {
+    CGRect imageRect = [self imageRectForContentRect:contentRect];
+    CGRect titleRect = [super titleRectForContentRect:contentRect];
+    titleRect.origin.x = (CGRectGetWidth(contentRect) - CGRectGetWidth(titleRect)) / 2;
+    titleRect.origin.y = CGRectGetMaxY(imageRect) + self.gapBetweenImageAndTitle;
+    return titleRect;
+}
+
+@end
+
+#pragma mark -
+
+@implementation NBTitleButton
 
 - (CGSize)sizeThatFits:(CGSize)size {
     size = [self.titleLabel sizeThatFits:size];
@@ -28,6 +71,10 @@
 - (CGRect)titleRectForContentRect:(CGRect)contentRect {
     return UIEdgeInsetsInsetRect(contentRect, self.titleEdgeInsets);
 }
+
+@end
+
+@implementation NBTextButton
 
 @end
 
@@ -61,7 +108,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.alignmentRectInsets = UIEdgeInsetsMake(0, 11, 0, 0);
+        self.alignmentRectInsets = UIEdgeInsetsMake(0.0, 11.0, 0.0, 0.0);
     }
     return self;
 }
@@ -75,7 +122,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.alignmentRectInsets = UIEdgeInsetsMake(0, 0, 0, 11);
+        self.alignmentRectInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 11.0);
     }
     return self;
 }
