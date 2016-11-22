@@ -30,10 +30,25 @@
 
 @implementation NBVerticalButton
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return self;
+}
+
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
     CGRect imageRect = [super imageRectForContentRect:contentRect];
     CGRect titleRect = [super titleRectForContentRect:contentRect];
-    imageRect.origin.x = (CGRectGetWidth(contentRect) - CGRectGetWidth(imageRect)) / 2;
+    /*
+    titleRect.size.width = MIN([self.currentTitle sizeWithFont:self.titleLabel.font
+                                             constrainedToSize:CGSizeMake(CGRectGetHeight(titleRect), CGFLOAT_MAX)
+                                                 lineBreakMode:NSLineBreakByCharWrapping].width,
+                               CGRectGetWidth(contentRect));
+    titleRect.origin.x = (CGRectGetWidth(contentRect) - CGRectGetWidth(titleRect)) / 2; */
+    titleRect.size.width = CGRectGetWidth(contentRect);
+    titleRect.origin.x = 0.0;
     imageRect.origin.y = (CGRectGetHeight(contentRect)
                           - CGRectGetHeight(imageRect)
                           - self.gapBetweenImageAndTitle
