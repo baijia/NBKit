@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NBKit"
-  s.version      = "0.0.10"
+  s.version      = "0.0.11"
   s.summary      = "iOS Newbies Development Kit."
 
   # This description is used to generate tags and improve search results.
