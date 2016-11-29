@@ -30,6 +30,14 @@
 
 @implementation NBVerticalButton
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return self;
+}
+
 - (CGRect)imageRectForContentRect:(CGRect)contentRect {
     CGRect imageRect = [super imageRectForContentRect:contentRect];
     CGRect titleRect = [super titleRectForContentRect:contentRect];
