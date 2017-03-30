@@ -4,35 +4,28 @@ PODS:
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
-  - M9Dev (0.0.19):
+  - M9Dev (0.0.30):
     - JRSwizzle
     - libextobjc/EXTScope
-    - M9Dev/Libraries (= 0.0.19)
-    - M9Dev/M9Dev (= 0.0.19)
+    - M9Dev/Libraries (= 0.0.30)
+    - M9Dev/M9Dev (= 0.0.30)
     - Masonry
     - NSString-UrlEncode
     - Reachability
-  - M9Dev/Libraries (0.0.19):
+  - M9Dev/Libraries (0.0.30):
     - JRSwizzle
     - libextobjc/EXTScope
-    - M9Dev/Libraries/BlocksKit (= 0.0.19)
-    - M9Dev/Libraries/CompareToVersion (= 0.0.19)
+    - M9Dev/Libraries/BlocksKit (= 0.0.30)
     - Masonry
     - NSString-UrlEncode
     - Reachability
-  - M9Dev/Libraries/BlocksKit (0.0.19):
-    - JRSwizzle
-    - libextobjc/EXTScope
-    - Masonry
-    - NSString-UrlEncode
-    - Reachability
-  - M9Dev/Libraries/CompareToVersion (0.0.19):
+  - M9Dev/Libraries/BlocksKit (0.0.30):
     - JRSwizzle
     - libextobjc/EXTScope
     - Masonry
     - NSString-UrlEncode
     - Reachability
-  - M9Dev/M9Dev (0.0.19):
+  - M9Dev/M9Dev (0.0.30):
     - JRSwizzle
     - libextobjc/EXTScope
     - M9Dev/Libraries
@@ -41,7 +34,7 @@ PODS:
     - Reachability
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
-  - NBKit (0.0.7):
+  - NBKit (0.0.12):
     - M9Dev (~> 0.0)
     - Masonry
     - MBProgressHUD
@@ -57,9 +50,9 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -76,23 +69,23 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   M9Dev:
-    :commit: 1cc44e88f678bc90050374889228d96c1ca59376
+    :commit: 7fd99fecbeaa6156495a047486a3f52fb176ea35
     :git: https://github.com/iwill/M9Dev.git
 
 SPEC CHECKSUMS:
   FLEX: 27b768fcae23a313a1eb115076d429180ca9b472
   JRSwizzle: dd5ead5d913a0f29e7f558200165849f006bb1e3
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  M9Dev: 3edc3b73e4c2528d2c63d6adaa11a4855271ea32
+  M9Dev: 56d9ab1b80a96ae08325c168a9c4023674922993
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  NBKit: 9bb654ed1ea5514a1702fe2a191115028748ebdb
+  NBKit: 5fde2e3bf731e081cff8a88a7a425324291a1622
   NSString-UrlEncode: 92dcb01cac33ef036cda76baf0e4378b18779e47
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: e3f4203000668a2f209e80d5fe1bc1915c4bcd0d
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.0
