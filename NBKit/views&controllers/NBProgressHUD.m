@@ -74,21 +74,21 @@
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
     [hud nb_setPassThroughTouches:YES];
     // hud.labelText = text;
-    hud.detailsLabelFont = hud.labelFont;
-    hud.detailsLabelColor = hud.labelColor;
-    hud.detailsLabelText = text;
-    [hud show:animated];
-    [hud hide:animated afterDelay:MBProgressHUDTimeInterval];
+    hud.detailsLabel.font = hud.label.font;
+    hud.detailsLabel.textColor = hud.label.textColor;
+    hud.detailsLabel.text = text;
+    [hud showAnimated:animated];
+    [hud hideAnimated:animated afterDelay:MBProgressHUDTimeInterval];
     return hud;
 }
 
 + (instancetype)nb_showHUDForText:(NSString *)text details:(NSString *)details superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForTextWithSuperview:superview];
     [hud nb_setPassThroughTouches:YES];
-    hud.labelText = text;
-    hud.detailsLabelText = details;
-    [hud show:animated];
-    [hud hide:animated afterDelay:MBProgressHUDTimeInterval];
+    hud.label.text = text;
+    hud.detailsLabel.text = details;
+    [hud showAnimated:animated];
+    [hud hideAnimated:animated afterDelay:MBProgressHUDTimeInterval];
     return hud;
 }
 
@@ -97,25 +97,25 @@
     [hud nb_setPassThroughTouches:YES];
     NSTimeInterval timeInterval = config ? config(hud) : MBProgressHUDTimeInterval;
     if (timeInterval > 0.0) {
-        [hud show:animated];
-        [hud hide:animated afterDelay:timeInterval];
+        [hud showAnimated:animated];
+        [hud hideAnimated:animated afterDelay:timeInterval];
     }
     else {
-        [hud show:animated];
+        [hud showAnimated:animated];
     }
     return hud;
 }
 
 + (instancetype)nb_showHUDForLoadingWithSuperview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForLoadingWithSuperview:superview];
-    [hud show:animated];
+    [hud showAnimated:animated];
     return hud;
 }
 
 + (instancetype)nb_showHUDForLoadingWithConfig:(MBProgressHUDConfig)config superview:(UIView *)superview animated:(BOOL)animated {
     MBProgressHUD *hud = [self nb_hudForLoadingWithSuperview:superview];
     if (config) config(hud);
-    [hud show:animated];
+    [hud showAnimated:animated];
     return hud;
 }
 
