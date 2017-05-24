@@ -72,6 +72,7 @@
 }
 
 - (void)prepareForReuse {
+    [super prepareForReuse];
     self.iconView.image = nil;
     self.iconView.hidden = YES;
     self.titleLabel.text = nil;
