@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NBKit"
-  s.version      = "0.0.13"
+  s.version      = "0.0.14"
   s.summary      = "iOS Newbies Development Kit."
 
   # This description is used to generate tags and improve search results.
@@ -144,8 +144,6 @@ Pod::Spec.new do |s|
   s.dependency "M9Dev", "~> 0.0"
   s.dependency "Masonry"
   s.dependency "MBProgressHUD"
-  s.dependency "ReactiveCocoa", "~> 2.0"
-  # s.dependency "ReactiveViewModel"
   s.dependency "SDWebImage"
   # s.dependency "TMCache"
   s.dependency "YYModel"
