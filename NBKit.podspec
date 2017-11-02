@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    iOS Newbies Development Kit.
                    DESC
 
-  s.homepage     = "https://gitlab.com/baijiayun/NBKit"
+  s.homepage     = "https://github.com/baijia/BJLiveCore-iOS.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
