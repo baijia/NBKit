@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
                    iOS Newbies Development Kit.
                    DESC
 
-  s.homepage     = "https://github.com/baijia/BJLiveCore-iOS.git"
+  s.homepage     = "https://gitlab.com/baijiayun/NBKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://git.baijiahulian.com/iOS/NBKit.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/baijia/BJLiveCore-iOS.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
